@@ -8,6 +8,7 @@ export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  
 
   // Ambil user dari backend saat app load
   useEffect(() => {
@@ -42,6 +43,7 @@ export const AuthContextProvider = ({ children }) => {
         setLoading(false);
       });
   }, []);
+ 
 
   const logOutUser = () => {
     localStorage.removeItem("access_token");
@@ -50,7 +52,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ currentUser, loading, logOutUser }}>
+    <AuthContext.Provider value={{ currentUser, setCurrentUser, logOutUser }}>
       {children}
     </AuthContext.Provider>
   );

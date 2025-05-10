@@ -11,9 +11,11 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function Login() {
   const [loading, setLoading] = useState(false);
+  const { setCurrentUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const toast = useToast();
@@ -42,54 +44,31 @@ function Login() {
   }, [navigate]);
 
   const handleLoginWithEmail = async () => {
-    if (!email || !password) {
-      toast({
-        title: "Email dan password wajib diisi",
-        status: "warning",
-        position: "top",
-        isClosable: true,
-        bg: toastBg,
-        color: toastTextColor,
-        border: `1px solid ${toastErrorBorder}`,
-        borderRadius: "md",
-        duration: 3000,
-      });
-      return;
-    }
-
     setLoading(true);
     try {
-      // Panggil API backend Express Anda
       const response = await fetch("http://localhost:5000/auth/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
       const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.message || "Login gagal");
-      }
+      if (!response.ok) throw new Error(result.message || "Login gagal");
 
-      // Simpan token ke localStorage
+      // Simpan token
       localStorage.setItem("access_token", result.session.access_token);
+
+      // Update state currentUser di Context supaya UI langsung update
+      setCurrentUser(result.user);
 
       toast({
         title: "Login berhasil",
         status: "success",
         position: "top",
         isClosable: true,
-        bg: toastBg,
-        color: toastTextColor,
-        border: `1px solid ${toastSuccessBorder}`,
-        borderRadius: "md",
-        duration: 2000,
       });
 
-      // Redirect ke halaman utama setelah login sukses
       navigate("/");
     } catch (err) {
       toast({
@@ -98,11 +77,6 @@ function Login() {
         status: "error",
         position: "top",
         isClosable: true,
-        bg: toastBg,
-        color: toastTextColor,
-        border: `1px solid ${toastErrorBorder}`,
-        borderRadius: "md",
-        duration: 3000,
       });
     } finally {
       setLoading(false);

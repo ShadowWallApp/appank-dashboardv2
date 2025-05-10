@@ -24,10 +24,18 @@ const Topbar = ({ onOpenSidebar }) => {
   const iconColor = useColorModeValue("gray.600", "white");
   const borderColor = useColorModeValue("gray.200", "gray.600");
 
+  // Ambil nama user dari currentUser, sesuaikan dengan struktur data Anda
   const displayName =
-    currentUser?.profile?.nama || // jika Anda simpan nama di tabel profile
-    currentUser?.email || // fallback ke email
+    currentUser?.nama || // jika nama ada langsung di user object
+    currentUser?.profile?.nama || // atau di objek profile
+    currentUser?.display_name || // atau di objek profile
+    currentUser?.full_name || // atau di objek profile
     "User";
+    //currentUser?.email || // fallback ke email
+
+  // Ambil avatar jika ada, sesuaikan juga dengan data Anda
+  const avatarUrl =
+    currentUser?.avatar_url || currentUser?.profile?.avatar_url || null;
 
   return (
     <Flex
@@ -80,7 +88,7 @@ const Topbar = ({ onOpenSidebar }) => {
           />
         )}
         {!isMobile && <Text color={textColor}>{displayName}</Text>}
-        <Avatar size="sm" name={displayName} />
+        <Avatar size="sm" name={displayName} src={avatarUrl} />
         <Button colorScheme="red" size="sm" onClick={logOutUser} variant="outline">
           Logout
         </Button>
