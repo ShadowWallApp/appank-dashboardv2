@@ -35,7 +35,7 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/auth/user", {
+      const response = await fetch("https://dashboardv2-production.up.railway.app/auth/user", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -64,7 +64,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const logOutUser = async () => {
     try {
-      await fetch("http://localhost:5000/auth/logout", {
+      await fetch("https://dashboardv2-production.up.railway.app/auth/logout", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
