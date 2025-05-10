@@ -46,7 +46,7 @@ function Login() {
 
     setLoading(true);
     try {
-      const response = await fetch("https://dashboardv2-production.up.railway.app/auth/login", {
+      const response = await fetch("https://expressdahsboardv2.vercel.app/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

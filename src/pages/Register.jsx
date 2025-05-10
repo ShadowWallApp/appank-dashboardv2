@@ -39,7 +39,7 @@ function Register() {
 
     setIsLoading(true);
     try {
-      const response = await fetch("https://dashboardv2-production.up.railway.app/auth/register", {
+      const response = await fetch("https://expressdahsboardv2.vercel.app/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

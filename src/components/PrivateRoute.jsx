@@ -14,7 +14,7 @@ function PrivateRoute({ children }) {
     }
 
     // Validasi token ke backend
-    fetch("http://localhost:5000/auth/user", {
+    fetch("https://expressdahsboardv2.vercel.app/auth/user", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
