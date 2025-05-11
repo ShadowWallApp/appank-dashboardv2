@@ -1,7 +1,7 @@
 
-# Firebase Authentication
+# Laravel Stisla 10
 
-A basic login page made with react which supports Authentication via Phone number & Google account.
+Backend Online Shope With Laravel
 
 
 ## Features
@@ -13,25 +13,47 @@ A basic login page made with react which supports Authentication via Phone numbe
 
 ## Run Locally
 
-Clone the project
+Clone the project Stisla
 
 ```bash
-  git clone https://github.com/NinadVyas/AuthFirebase.git
+  git clone https://github.com/bahrie127/laravel10-stisla.git
 ```
 
-Install dependencies
+Install Composer
 
 ```bash
-  npm install
+  composer install
 ```
 
-Start the server
+Generate Key .env
 
 ```bash
-  npm run start
+  php artisan key:generate
 ```
 
+Buat Laravel
 
+```bash
+  composer create-project laravel/laravel nama_project
+```
+
+Jalankan Project
+
+```bash
+  php artisan serve
+```
+## Laravel Fortyfy
+
+To get started, install Fortify using the Composer package manager:
+
+```bash
+  composer require laravel/fortify
+```
+Next, publish Fortify's resources using the vendor:publish command:
+
+```bash
+  php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"
+```
 ## Tech Stack
 
 **Client:** React, JavaScript, Chakra UI
