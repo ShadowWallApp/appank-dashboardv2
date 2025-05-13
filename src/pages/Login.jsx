@@ -174,7 +174,7 @@ function Login() {
         >
           © 2025 All rights reserved .by{" "}
           <a
-            href="https://appank.dev.vercel.app/"
+            href="https://appankdev.vercel.app/"
             style={{ color: "#3182ce", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
