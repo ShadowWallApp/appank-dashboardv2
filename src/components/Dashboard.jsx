@@ -271,7 +271,7 @@ const Dashboard = () => {
   >
     © 2025 All rights reserved .by{" "}
     <Link
-      href="https://appank-dev.vercel.app/" // Ganti dengan URL yang diinginkan
+      href="https://appank.dev.vercel.app/" // Ganti dengan URL yang diinginkan
       color="blue.500"
       _hover={{ textDecoration: "underline", color: "blue.600" }}
       isExternal // Tambahkan ini jika link eksternal

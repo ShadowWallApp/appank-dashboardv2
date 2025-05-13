@@ -129,6 +129,10 @@ function Login() {
               Daftar
             </a>
           </Text>
+          
+
+          {/* masih dalam tahap pengembangan */}
+          {/* 
           <Flex my="1px" align="center">
             <Divider />
             <Text px="10px" fontSize="sm" color="gray.500">
@@ -159,7 +163,7 @@ function Login() {
             >
               Facebook
             </Button>
-          </Flex>
+          </Flex> */}
         </Flex>
         <Text
           fontSize="xs"
@@ -170,7 +174,7 @@ function Login() {
         >
           © 2025 All rights reserved .by{" "}
           <a
-            href="https://appank-dev.vercel.app/"
+            href="https://appank.dev.vercel.app/"
             style={{ color: "#3182ce", textDecoration: "none" }}
             target="_blank"
             rel="noopener noreferrer"
