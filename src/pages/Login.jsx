@@ -102,7 +102,7 @@ function Login() {
         borderColor={borderColor}
       >
         <Flex flexDir="column" gap="20px">
-          <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+          <Text fontSize="2xl" fontWeight="bold" textAlign="center" color={textColor}>
             Login
           </Text>
           <Input
