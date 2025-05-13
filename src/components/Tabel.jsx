@@ -238,7 +238,7 @@ const Tabel = () => {
         >
           © 2025 All rights reserved .by{" "}
           <Link
-            href="https://appank.dev.vercel.app/"
+            href="https://appankdev.vercel.app/"
             color="blue.500"
             _hover={{ textDecoration: "underline", color: "blue.600" }}
             isExternal
